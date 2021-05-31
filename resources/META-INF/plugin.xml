@@ -1,0 +1,28 @@
+<idea-plugin>
+  <id>manjaro.mpb</id>
+  <name>YoPlugin</name>
+  <version>1.0</version>
+  <idea-version since-build="193"/>
+  <vendor email="dns.56@mail.ru">NikitaDunaev</vendor>
+
+  <description><![CDATA[
+This is a Yo plugin. A fun designed to lighten the mood during your boring coding
+    ]]></description>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+  <applicationListeners>
+    <listener class="ProgressBarLafManagerListener"
+              topic="com.intellij.ide.ui.LafManagerListener" />
+  </applicationListeners>
+</idea-plugin>
