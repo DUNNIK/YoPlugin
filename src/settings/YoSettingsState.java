@@ -11,6 +11,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Supports storing the application settings in a persistent way.
@@ -23,7 +25,8 @@ import javax.swing.*;
 )
 public class YoSettingsState implements PersistentStateComponent<YoSettingsState> {
 
-  public String designType = "Mario";
+  public List<String> names = Arrays.asList( "Mario", "Pikachu", "Sonic", "Nyan Cat");
+  public String designType;
 
   public static YoSettingsState getInstance() {
     return ServiceManager.getService(YoSettingsState.class);

@@ -32,7 +32,8 @@ public class YoSettingsConfigurable implements Configurable {
   @Nullable
   @Override
   public JComponent createComponent() {
-    yoSettingsComponent = new YoSettingsComponent();//ToDo:List из элементов хранимых в state
+    var settings = YoSettingsState.getInstance();
+    yoSettingsComponent = new YoSettingsComponent(settings.names);//ToDo:List из элементов хранимых в state
     return yoSettingsComponent.getPanel();
   }
 

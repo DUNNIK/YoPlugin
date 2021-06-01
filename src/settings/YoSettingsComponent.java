@@ -2,19 +2,10 @@
 
 package settings;
 
-import com.intellij.ui.components.JBCheckBox;
 import com.intellij.ui.components.JBLabel;
-import com.intellij.ui.components.JBTextField;
 import com.intellij.util.ui.FormBuilder;
-import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,10 +18,10 @@ public class YoSettingsComponent {
   private final ButtonGroup buttonGroup = new ButtonGroup();
   private final JPanel panelRadio = new JPanel();
   private JRadioButton currentButton = new JRadioButton();
-  private List<JRadioButton> buttonList = new ArrayList<>();
+  private final List<JRadioButton> buttonList = new ArrayList<>();
 
-  public YoSettingsComponent() {
-    initializeRadioPanel();
+  public YoSettingsComponent(List<String> names) {
+    initializeRadioPanel(names);
     myMainPanel = FormBuilder.createFormBuilder()
             .addLabeledComponent(new JBLabel("Choose the design of the loader panel"), panelRadio, 1, true)
             .addComponentFillVertically(new JPanel(), 0)
@@ -40,8 +31,7 @@ public class YoSettingsComponent {
     return myMainPanel;
   }
 
-  private void initializeRadioPanel() {
-    String[] names = { "Mario", "Pikachu", "Sonic", "Nyan Cat"};
+  private void initializeRadioPanel(List<String> names) {
     for (String s : names) {
       var radio = new JRadioButton(s);
       radio.addItemListener(e -> {
@@ -55,7 +45,6 @@ public class YoSettingsComponent {
     }
   }
 
-
   public JRadioButton getCurrentButton() {
     return currentButton;
   }
@@ -64,15 +53,16 @@ public class YoSettingsComponent {
     return currentButton.getText();
   }
   public void setCurrentButton(String currentButtonName) {
-    var button = searchButtonInAllButtons(currentButtonName);
-    this.currentButton = button;
-    this.currentButton.setSelected(true);
+    this.currentButton = searchButtonInAllButtons(currentButtonName);
+    if (currentButton != null){
+      this.currentButton.setSelected(true);
+    }
   }
 
   private JRadioButton searchButtonInAllButtons(String text){
     JRadioButton result = null;
     for (var button : buttonList) {
-      if (button.getText() == text){
+      if (button.getText().equals(text)){
         result = button;
       }
     }
