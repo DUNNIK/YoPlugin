@@ -15,6 +15,12 @@ This is a Yo plugin. A fun designed to lighten the mood during your boring codin
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
+    <toolWindow id="Sample Calendar" secondary="true" icon="AllIcons.General.Modified" anchor="right"
+                factoryClass="toolsWindow.MyToolWindowFactory"/>
+    <applicationConfigurable parentId="tools" instance="settings.YoSettingsConfigurable"
+                             id="org.intellij.sdk.settings.YoSettingsConfigurable"
+                             displayName="YoPlugin Settings"/>
+    <applicationService serviceImplementation="settings.YoSettingsState"/>
   </extensions>
 
   <actions>
