@@ -1,14 +1,16 @@
-import com.intellij.ui.scale.JBUIScale;
-import icons.YoBackgrounds;
-import icons.YoIcons;
+package logic;
+
 import com.intellij.openapi.ui.GraphicsConfig;
 import com.intellij.ui.Gray;
 import com.intellij.ui.JBColor;
+import com.intellij.ui.scale.JBUIScale;
 import com.intellij.util.ui.GraphicsUtil;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
+import icons.YoIcons;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicGraphicsUtils;
@@ -21,23 +23,24 @@ import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.Objects;
 
 
 public class YoProgressBarUi extends BasicProgressBarUI {
-    private final ImageIcon currentIcon = YoIcons.getMario();
-    private BufferedImage currentBackground = null;
+    private static ImageIcon currentIcon = YoIcons.getMario();
+    private static BufferedImage currentBackground = null;
 
-    public YoProgressBarUi(){
-        try {
-            currentBackground = ImageIO.read(Objects.requireNonNull(this.getClass().getResource(YoBackgrounds.getLightgreyBackgroundPath())));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void setCurrentIcon(ImageIcon currentIcon) {
+        YoProgressBarUi.currentIcon = currentIcon;
     }
+
+    public static void setCurrentBackground(BufferedImage currentBackground) {
+        YoProgressBarUi.currentBackground = currentBackground;
+    }
+
+    @NotNull
+    @Contract("_ -> new")
     @SuppressWarnings({"MethodOverridesStaticMethodOfSuperclass", "UnusedDeclaration"})
-    public static ComponentUI createUI(JComponent c) {
+    public static ComponentUI createUI(@NotNull JComponent c) {
         c.setBorder(JBUI.Borders.empty().asUIResource());
         return new YoProgressBarUi();
     }

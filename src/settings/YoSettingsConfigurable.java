@@ -3,6 +3,9 @@
 package settings;
 
 import com.intellij.openapi.options.Configurable;
+import handler.YoCommand;
+import handler.YoHandler;
+import org.h2.util.StringUtils;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.Nullable;
 
@@ -33,28 +36,39 @@ public class YoSettingsConfigurable implements Configurable {
   @Override
   public JComponent createComponent() {
     var settings = YoSettingsState.getInstance();
-    yoSettingsComponent = new YoSettingsComponent(settings.names);//ToDo:List из элементов хранимых в state
+    yoSettingsComponent = new YoSettingsComponent(settings.getAllIcons());
     return yoSettingsComponent.getPanel();
   }
 
   @Override
   public boolean isModified() {
     var settings = YoSettingsState.getInstance();
-    return !yoSettingsComponent.getCurrentButtonText().equals(settings.designType);
+    return !yoSettingsComponent.getCurrentButtonText().equals(settings.getCurrentIcon())
+            || !yoSettingsComponent.getCustomPath().equals(settings.getCustomPath());
   }
 
   @Override
   public void apply() {
+    if (isNotImpossibleToCustom()){
+      JOptionPane.showMessageDialog(null, "It's not impossible to custom");
+      reset();
+      return;
+    }
     var settings = YoSettingsState.getInstance();
-    settings.designType = yoSettingsComponent.getCurrentButtonText();
-    //ToDo: изменить переменную в загрузчике
-  }
+    settings.setCurrentIcon(yoSettingsComponent.getCurrentButtonText());
+    settings.setCustomPath(yoSettingsComponent.getCustomPath());
 
+    var changeDesign = new YoHandler(new YoCommand(settings.getCurrentIcon(), settings.getCustomPath()));
+    changeDesign.toDo();
+  }
+  private boolean isNotImpossibleToCustom() {
+    return StringUtils.isWhitespaceOrEmpty(yoSettingsComponent.getCustomPath()) && yoSettingsComponent.getCurrentButtonText().equals("Custom");
+  }
   @Override
   public void reset() {
     var settings = YoSettingsState.getInstance();
-    yoSettingsComponent.setCurrentButton(settings.designType);
-    //ToDo: изменить переменную в загрузчике
+    yoSettingsComponent.setCurrentButton(settings.getCurrentIcon());
+    yoSettingsComponent.setUserIconPath(settings.getCustomPath());
   }
 
   @Override

@@ -10,7 +10,6 @@ import com.intellij.util.xmlb.XmlSerializerUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.*;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,8 +24,28 @@ import java.util.List;
 )
 public class YoSettingsState implements PersistentStateComponent<YoSettingsState> {
 
-  public List<String> names = Arrays.asList( "Mario", "Pikachu", "Sonic", "Nyan Cat");
-  public String designType;
+  private final List<String> allIcons = Arrays.asList( "Mario", "Pikachu", "Sonic", "Nyan Cat", "Custom");
+  private String currentIcon = "Mario";
+  private String customPath;
+
+  public String getCustomPath() {
+    return customPath;
+  }
+
+  public void setCustomPath(String customPath) {
+    this.customPath = customPath;
+  }
+
+  public List<String> getAllIcons() {
+    return allIcons;
+  }
+  public String getCurrentIcon() {
+    return currentIcon;
+  }
+
+  public void setCurrentIcon(String currentIcon) {
+    this.currentIcon = currentIcon;
+  }
 
   public static YoSettingsState getInstance() {
     return ServiceManager.getService(YoSettingsState.class);

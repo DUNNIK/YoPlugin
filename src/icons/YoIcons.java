@@ -1,6 +1,8 @@
 package icons;
 
 import org.imgscalr.Scalr;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -10,12 +12,13 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class YoIcons {
-    private static final ImageIcon mario = new ImageIcon(Objects.requireNonNull(YoIcons.class.getResource("/Gifs/соник.gif")));
+    private static final ImageIcon mario = new ImageIcon(Objects.requireNonNull(YoIcons.class.getResource("/Gifs/mario.gif")));
     private static final ImageIcon sonic = new ImageIcon(Objects.requireNonNull(YoIcons.class.getResource("/Gifs/соник.gif")));
     private static final ImageIcon zombie = new ImageIcon(Objects.requireNonNull(YoIcons.class.getResource("/Gifs/зомби.gif")));
     private static final ImageIcon pikachu = new ImageIcon(Objects.requireNonNull(YoIcons.class.getResource("/Gifs/пикачу.gif")));
     private static final ImageIcon skeletons = new ImageIcon(Objects.requireNonNull(YoIcons.class.getResource("/Gifs/Скелеты.gif")));
     private static final ImageIcon nyanCat = new ImageIcon(Objects.requireNonNull(YoIcons.class.getResource("/Images/cat.png")));
+
     private YoIcons() { throw new IllegalStateException("Utility class"); }
 
     public static ImageIcon getMario() {
@@ -43,13 +46,15 @@ public class YoIcons {
     }
 
     private static BufferedImage resizeImage(BufferedImage image) {
-        return Scalr.resize(image, 15, 21);
+        return Scalr.resize(image, 21);
     }
 
-    public static ImageIcon getUserIcon() {
+    @NotNull
+    @Contract("_ -> new")
+    public static ImageIcon loadUserIcon(String path) {
         BufferedImage image = null;
         try {
-            image = ImageIO.read(new File("путь юзера"));
+            image = ImageIO.read(new File(path));
         } catch (IOException e) {
             e.printStackTrace();
         }

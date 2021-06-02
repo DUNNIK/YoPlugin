@@ -26,7 +26,7 @@ This is a Yo plugin. A fun designed to lighten the mood during your boring codin
   </actions>
 
   <applicationListeners>
-    <listener class="ProgressBarLafManagerListener"
+    <listener class="logic.ProgressBarLafManagerListener"
               topic="com.intellij.ide.ui.LafManagerListener" />
   </applicationListeners>
 </idea-plugin>
