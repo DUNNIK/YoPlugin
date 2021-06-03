@@ -20,13 +20,14 @@ import java.util.List;
  */
 @State(
         name = "org.intellij.sdk.settings.YoSettingsState",
-        storages = {@Storage("SdkSettingsPlugin.xml")}
+        storages = {@Storage("YoSettingsPlugin.xml")}
 )
 public class YoSettingsState implements PersistentStateComponent<YoSettingsState> {
 
-  private final List<String> allIcons = Arrays.asList( "Mario", "Pikachu", "Sonic", "Nyan Cat", "Custom");
-  private String currentIcon = "Mario";
+  private final List<String> allIconNames = Arrays.asList( "Mario", "Pikachu", "Sonic", "Nyan Cat", "Custom");
+  private String currentIconName = "Mario";
   private String customPath;
+
 
   public String getCustomPath() {
     return customPath;
@@ -36,15 +37,15 @@ public class YoSettingsState implements PersistentStateComponent<YoSettingsState
     this.customPath = customPath;
   }
 
-  public List<String> getAllIcons() {
-    return allIcons;
+  public List<String> getAllIconNames() {
+    return allIconNames;
   }
-  public String getCurrentIcon() {
-    return currentIcon;
+  public String getCurrentIconName() {
+    return currentIconName;
   }
 
-  public void setCurrentIcon(String currentIcon) {
-    this.currentIcon = currentIcon;
+  public void setCurrentIconName(String currentIcon) {
+    this.currentIconName = currentIcon;
   }
 
   public static YoSettingsState getInstance() {

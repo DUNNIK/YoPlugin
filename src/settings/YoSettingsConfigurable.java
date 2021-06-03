@@ -36,14 +36,14 @@ public class YoSettingsConfigurable implements Configurable {
   @Override
   public JComponent createComponent() {
     var settings = YoSettingsState.getInstance();
-    yoSettingsComponent = new YoSettingsComponent(settings.getAllIcons());
+    yoSettingsComponent = new YoSettingsComponent(settings.getAllIconNames());
     return yoSettingsComponent.getPanel();
   }
 
   @Override
   public boolean isModified() {
     var settings = YoSettingsState.getInstance();
-    return !yoSettingsComponent.getCurrentButtonText().equals(settings.getCurrentIcon())
+    return !yoSettingsComponent.getCurrentButtonText().equals(settings.getCurrentIconName())
             || !yoSettingsComponent.getCustomPath().equals(settings.getCustomPath());
   }
 
@@ -55,10 +55,10 @@ public class YoSettingsConfigurable implements Configurable {
       return;
     }
     var settings = YoSettingsState.getInstance();
-    settings.setCurrentIcon(yoSettingsComponent.getCurrentButtonText());
+    settings.setCurrentIconName(yoSettingsComponent.getCurrentButtonText());
     settings.setCustomPath(yoSettingsComponent.getCustomPath());
 
-    var changeDesign = new YoHandler(new YoCommand(settings.getCurrentIcon(), settings.getCustomPath()));
+    var changeDesign = new YoHandler(new YoCommand(settings.getCurrentIconName(), settings.getCustomPath()));
     changeDesign.toDo();
   }
   private boolean isNotImpossibleToCustom() {
@@ -67,7 +67,7 @@ public class YoSettingsConfigurable implements Configurable {
   @Override
   public void reset() {
     var settings = YoSettingsState.getInstance();
-    yoSettingsComponent.setCurrentButton(settings.getCurrentIcon());
+    yoSettingsComponent.setCurrentButton(settings.getCurrentIconName());
     yoSettingsComponent.setUserIconPath(settings.getCustomPath());
   }
 

@@ -19,6 +19,7 @@ This is a Yo plugin. A fun designed to lighten the mood during your boring codin
                              id="org.intellij.sdk.settings.YoSettingsConfigurable"
                              displayName="YoPlugin Settings"/>
     <applicationService serviceImplementation="settings.YoSettingsState"/>
+    <applicationService serviceImplementation="logic.YoProgressBarUiState"/>
   </extensions>
 
   <actions>

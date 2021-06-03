@@ -7,6 +7,7 @@ import com.intellij.ui.scale.JBUIScale;
 import com.intellij.util.ui.GraphicsUtil;
 import com.intellij.util.ui.JBUI;
 import com.intellij.util.ui.UIUtil;
+import icons.YoBackgrounds;
 import icons.YoIcons;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -22,20 +23,9 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
-import java.awt.image.BufferedImage;
 
 
 public class YoProgressBarUi extends BasicProgressBarUI {
-    private static ImageIcon currentIcon = YoIcons.getMario();
-    private static BufferedImage currentBackground = null;
-
-    public static void setCurrentIcon(ImageIcon currentIcon) {
-        YoProgressBarUi.currentIcon = currentIcon;
-    }
-
-    public static void setCurrentBackground(BufferedImage currentBackground) {
-        YoProgressBarUi.currentBackground = currentBackground;
-    }
 
     @NotNull
     @Contract("_ -> new")
@@ -63,7 +53,7 @@ public class YoProgressBarUi extends BasicProgressBarUI {
             public void componentHidden(ComponentEvent e) {
                 super.componentHidden(e);
             }
-        });
+        });//ToDo: попробовать удалить эти методы
     }
 
     private volatile int offset = 0;
@@ -97,7 +87,10 @@ public class YoProgressBarUi extends BasicProgressBarUI {
         if (component.isOpaque()) {
             graphics2D.fillRect(0, (component.getHeight() - cHeight) / 2, cWidth, cHeight);
         }
+
         //ToDo: background
+        var state = YoProgressBarUiState.getInstance();
+        var currentBackground = YoBackgrounds.loadBackground(this.getClass().getResource(state.getCurrentBackgroundPath()));
         if (currentBackground != null) {
             var tp = new TexturePaint(currentBackground, new Rectangle2D.Double(0, 1, cWidth - 2f, cHeight - 2f));
             graphics2D.setPaint(tp);
@@ -132,6 +125,8 @@ public class YoProgressBarUi extends BasicProgressBarUI {
         if (component.isOpaque()) {
             graphics2D.fill(area);
         }
+
+        var currentIcon = YoIcons.loadIcon(this.getClass().getResource(state.getCurrentIconPath()));
 
         currentIcon.paintIcon(progressBar, graphics2D, offset2 - JBUIScale.scale(5), -(component.getHeight() - cHeight) / 2);
 
@@ -195,12 +190,16 @@ public class YoProgressBarUi extends BasicProgressBarUI {
         graphics2D.setColor(background);
         graphics2D.fill(new RoundRectangle2D.Float(off, off, progressBarWidth - 2f * off - off, progressBarHeight - 2f * off - off, R, R));
 
+        var state = YoProgressBarUiState.getInstance();
+        var currentBackground = YoBackgrounds.loadBackground(this.getClass().getResource(state.getCurrentBackgroundPath()));
         if (currentBackground != null) {
             var tp = new TexturePaint(currentBackground, new Rectangle2D.Double(0, 1, progressBarHeight - 2f * off - off, progressBarHeight - 2f * off - off));
             graphics2D.setPaint(tp);
         }
 
         graphics2D.fill(new RoundRectangle2D.Float(2f * off, 2f * off, amountFull - JBUIScale.scale(5f), progressBarHeight - JBUIScale.scale(5f), JBUIScale.scale(7f), JBUIScale.scale(7f)));
+
+        var currentIcon = YoIcons.loadIcon(this.getClass().getResource(state.getCurrentIconPath()));
 
         currentIcon.paintIcon(progressBar, graphics2D, amountFull - JBUIScale.scale(5), -(component.getHeight() - progressBarHeight) / 2);
         graphics2D.translate(0, -(component.getHeight() - progressBarHeight) / 2);
