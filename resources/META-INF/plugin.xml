@@ -1,28 +1,44 @@
 <idea-plugin>
-  <id>manjaro.mpb</id>
+  <id>dunnik</id>
   <name>YoPlugin</name>
   <version>1.0</version>
   <idea-version since-build="193"/>
-  <vendor email="dns.56@mail.ru">NikitaDunaev</vendor>
+  <vendor email="dns.56@mail.ru" url="https://github.com/DUNNIK">DUNNIK</vendor>
 
   <description><![CDATA[
-This is a Yo plugin. A fun designed to lighten the mood during your boring coding
+      Yo! This plugin is created to diversify your shitcode with your any pictures.
+      <img src="https://github.com/qeesung/HighlightBracketPair/raw/master/images/highlight-java.gif"/><br/>
+      <img src="https://github.com/qeesung/HighlightBracketPair/raw/master/images/highlight-go.gif"/><br/>
+      <img src="https://github.com/qeesung/HighlightBracketPair/raw/master/images/settings.jpeg"/><br/>
+      Click <a href="https://github.com/DUNNIK/YoPlugin">github</a> for more information.
     ]]></description>
 
-  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-       on how to target different products -->
+  <change-notes><![CDATA[
+      <ul>
+        <li>Fixed some little issues</li>
+        <li>Support more languages and IDEs</li>
+        <li>Add color schemes and effects settings</li>
+        <li>Compatible with the vim mode</li>
+      </ul>
+    ]]>
+  </change-notes>
+
   <depends>com.intellij.modules.platform</depends>
 
   <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
+    <applicationConfigurable parentId="tools" instance="settings.YoSettingsConfigurable"
+                             id="org.intellij.sdk.settings.YoSettingsConfigurable"
+                             displayName="YoPlugin Settings"/>
+    <applicationService serviceImplementation="settings.YoSettingsState"/>
+    <applicationService serviceImplementation="logic.YoProgressBarUiState"/>
   </extensions>
 
   <actions>
-    <!-- Add your actions here -->
+
   </actions>
 
   <applicationListeners>
-    <listener class="ProgressBarLafManagerListener"
+    <listener class="logic.ProgressBarLafManagerListener"
               topic="com.intellij.ide.ui.LafManagerListener" />
   </applicationListeners>
 </idea-plugin>

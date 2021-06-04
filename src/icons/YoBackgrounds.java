@@ -2,10 +2,11 @@ package icons;
 
 import org.imgscalr.Scalr;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+
+import static javax.imageio.ImageIO.read;
 
 public class YoBackgrounds {
     private static final String WALL_BACKGROUND_PATH = "/Backgrounds/bricks.png";
@@ -21,12 +22,12 @@ public class YoBackgrounds {
         return WALL_BACKGROUND_PATH;
     }
 
-    public static String getGrassBackgroundPath() {
-        return GRASS_BACKGROUND_PATH;
-    }
-
     public static String getMountainBackgroundPath() {
         return MOUNTAIN_BACKGROUND_PATH;
+    }
+
+    public static String getGrassBackgroundPath() {
+        return GRASS_BACKGROUND_PATH;
     }
 
     public static String getRainbowBackgroundPath() {
@@ -40,15 +41,14 @@ public class YoBackgrounds {
     public static String getLightgreyBackgroundPath() {
         return LIGHTGREY_BACKGROUND_PATH;
     }
-
     private static BufferedImage resizeImage(BufferedImage image) {
-        return Scalr.resize(image, 15, 21);
+        return Scalr.resize(image, 32);
     }
 
-    public static BufferedImage getUserBackground() {
+    public static BufferedImage loadBackground(URL url) {
         BufferedImage image = null;
         try {
-            image = ImageIO.read(new File("путь юзера"));
+            image = read(url);
         } catch (IOException e) {
             e.printStackTrace();
         }
