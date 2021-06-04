@@ -11,36 +11,6 @@ public class YoHandler {
         this.command = command;
     }
 
-   /* public void toDo(){
-        switch (command.getCommandName()) {
-            case "Mario" -> {
-                var state = YoProgressBarUiState.getInstance();
-                state.setCurrentIcon(YoIcons.getMario());
-                state.setCurrentBackground(YoBackgrounds.getUserBackground(this.getClass().getResource(YoBackgrounds.getWallBackgroundPath())));
-            }
-            case "Pikachu" -> {
-                var state = YoProgressBarUiState.getInstance();
-                state.setCurrentIcon(YoIcons.getPikachu());
-                state.setCurrentBackground(YoBackgrounds.getUserBackground(this.getClass().getResource(YoBackgrounds.getGrassBackgroundPath())));
-            }
-            case "Sonic" -> {
-                var state = YoProgressBarUiState.getInstance();
-                state.setCurrentIcon(YoIcons.getSonic());
-                state.setCurrentBackground(YoBackgrounds.getUserBackground(this.getClass().getResource(YoBackgrounds.getGreyBackgroundPath())));
-            }
-            case "Nyan Cat" -> {
-                var state = YoProgressBarUiState.getInstance();
-                state.setCurrentIcon(YoIcons.getNyanCat());
-                state.setCurrentBackground(YoBackgrounds.getUserBackground(this.getClass().getResource((YoBackgrounds.getRainbowBackgroundPath()))));
-            }
-            case "Custom" -> {
-                var state = YoProgressBarUiState.getInstance();
-                state.setCurrentIcon(YoIcons.loadUserIcon(command.getUserPath()));
-                state.setCurrentBackground(YoBackgrounds.getUserBackground(this.getClass().getResource(YoBackgrounds.getRainbowBackgroundPath())));
-            }
-            default -> throw new IllegalStateException("Unexpected value: " + command.getCommandName());
-        }
-    }*/
     public void toDo(){
         switch (command.getCommandName()) {
             case "Mario" -> {

@@ -53,7 +53,7 @@ public class YoProgressBarUi extends BasicProgressBarUI {
             public void componentHidden(ComponentEvent e) {
                 super.componentHidden(e);
             }
-        });//ToDo: попробовать удалить эти методы
+        });
     }
 
     private volatile int offset = 0;
@@ -67,77 +67,72 @@ public class YoProgressBarUi extends BasicProgressBarUI {
     //Универсальный метод рисования, который должен делать правильные вещи для всех линейных индикаторов выполнения прыгающих ящиков.
     @Override
     protected void paintIndeterminate(Graphics g2d, JComponent component) {
-        if (isNotInstanceOfGraphic2D(g2d)) {
+        if (!(g2d instanceof Graphics2D)) {
             return;
         }
 
         var graphics2D = (Graphics2D) g2d;
-        var areaForBorder = progressBar.getInsets();
-        int barRectWidth = progressBar.getWidth() - (areaForBorder.right + areaForBorder.left);
-        int barRectHeight = progressBar.getHeight() - (areaForBorder.top + areaForBorder.bottom);
+        var progressBarInsets = progressBar.getInsets();
+        int barRectWidth = progressBar.getWidth() - (progressBarInsets.right + progressBarInsets.left);
+        int barRectHeight = progressBar.getHeight() - (progressBarInsets.top + progressBarInsets.bottom);
         if (barRectWidth <= 0 || barRectHeight <= 0) {
             return;
         }
         graphics2D.setColor(new JBColor(Gray._240.withAlpha(50), Gray._128.withAlpha(50)));
-        int cWidth = component.getWidth();
-        int cHeight = component.getPreferredSize().height;
-        if (isNotEven(component.getHeight() - cHeight)) {
-            cHeight++;
-        }
-        if (component.isOpaque()) {
-            graphics2D.fillRect(0, (component.getHeight() - cHeight) / 2, cWidth, cHeight);
+        var w = component.getWidth();
+        var h = component.getPreferredSize().height;
+        if (isNotEven(component.getHeight() - h)) {
+            h++;
         }
 
-        //ToDo: background
-        var state = YoProgressBarUiState.getInstance();
-        var currentBackground = YoBackgrounds.loadBackground(this.getClass().getResource(state.getCurrentBackgroundPath()));
-        if (currentBackground != null) {
-            var tp = new TexturePaint(currentBackground, new Rectangle2D.Double(0, 1, cWidth - 2f, cHeight - 2f));
-            graphics2D.setPaint(tp);
+        if (component.isOpaque()) {
+            graphics2D.fillRect(0, (component.getHeight() - h) / 2, w, h);
         }
-        //graphics2D.setColor(new JBColor(Gray._165.withAlpha(50), Gray._88.withAlpha(50)));
+        graphics2D.setColor(new JBColor(Gray._165.withAlpha(50), Gray._88.withAlpha(50)));
         final GraphicsConfig config = GraphicsUtil.setupAAPainting(graphics2D);
-        graphics2D.translate(0, (component.getHeight() - cHeight) / 2);
+        graphics2D.translate(0, (component.getHeight() - h) / 2);
 
         final float R = JBUIScale.scale(8f);
         final float R2 = JBUIScale.scale(9f);
 
-        final var containingRoundRect = new Area(new RoundRectangle2D.Float(1f, 1f, cWidth - 2f, cHeight - 2f, R, R));
+        final var containingRoundRect = new Area(new RoundRectangle2D.Float(1f, 1f, w - 2f, h - 2f, R, R));
         graphics2D.fill(containingRoundRect);
+
         offset = (offset + 1) % getPeriodLength();
         offset2 += velocity;
+
 
         if (offset2 <= 2) {
             offset2 = 2;
             velocity = 1;
-        } else if (offset2 >= cWidth - JBUIScale.scale(15)) {
-            offset2 = cWidth - JBUIScale.scale(15);
+        } else if (offset2 >= w - JBUI.scale(15)) {
+            graphics2D.rotate(Math.toRadians(90));
+            offset2 = w - JBUI.scale(15);
             velocity = -1;
         }
-        var area = new Area(new Rectangle2D.Float(0, 0, cWidth, cHeight));
-        area.subtract(new Area(new RoundRectangle2D.Float(1f, 1f, cWidth - 2f, cHeight - 2f, R, R)));
+        var area = new Area(new Rectangle2D.Float(0, 0, w, h));
+        area.subtract(new Area(new RoundRectangle2D.Float(1f, 1f, w - 2f, h - 2f, R, R)));
+        if (component.isOpaque()) {
+            graphics2D.fill(area);
+        }
+        area.subtract(new Area(new RoundRectangle2D.Float(0, 0, w, h, R2, R2)));
 
         if (component.isOpaque()) {
             graphics2D.fill(area);
         }
-
-        area.subtract(new Area(new RoundRectangle2D.Float(0, 0, cWidth, cHeight, R2, R2)));
-        if (component.isOpaque()) {
-            graphics2D.fill(area);
-        }
-
+        var state = YoProgressBarUiState.getInstance();
         var currentIcon = YoIcons.loadIcon(this.getClass().getResource(state.getCurrentIconPath()));
 
-        currentIcon.paintIcon(progressBar, graphics2D, offset2 - JBUIScale.scale(5), -(component.getHeight() - cHeight) / 2);
+        currentIcon.paintIcon(progressBar, graphics2D, offset2 - JBUIScale.scale(5), -(component.getHeight() - barRectHeight) / 2);
 
-        graphics2D.draw(new RoundRectangle2D.Float(1f, 1f, cWidth - 2f - 1f, cHeight - 2f - 1f, R, R));
-        graphics2D.translate(0, -(component.getHeight() - cHeight) / 2);
+        graphics2D.draw(new RoundRectangle2D.Float(1f, 1f, w - 2f - 1f, h - 2f - 1f, R, R));
+        graphics2D.translate(0, -(component.getHeight() - h) / 2);
 
         if (progressBar.isStringPainted()) {
             if (progressBar.getOrientation() == SwingConstants.HORIZONTAL) {
-                paintString(graphics2D, areaForBorder.left, areaForBorder.top, barRectWidth, barRectHeight, boxRect.x, boxRect.width);
+                paintString(graphics2D, progressBarInsets.left, progressBarInsets.top, barRectWidth, barRectHeight, boxRect.x, boxRect.width);
             } else {
-                paintString(graphics2D, areaForBorder.left, areaForBorder.top, barRectWidth, barRectHeight, boxRect.y, boxRect.height);
+                paintString(graphics2D, progressBarInsets.left, progressBarInsets.top, barRectWidth, barRectHeight, boxRect.y, boxRect.height);
             }
         }
         config.restore();
