@@ -15,7 +15,7 @@ This is the plugin for [JetBrains Products](https://www.jetbrains.com/) based on
 
 ## How to install?
 
-You can install YoPlugin from the [JetBrains Plugin Repository](https://plugins.jetbrains.com/plugin/7973-sonarlint), directly available in the IDE preferences.
+You can install YoPlugin from the [JetBrains Plugin Repository](https://plugins.jetbrains.com/plugin/16943-yoplugin), directly available in the IDE preferences.
 
 ## Where are the settings located?
 ------------
