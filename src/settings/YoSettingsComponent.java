@@ -10,8 +10,11 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Supports creating and managing a {@link JPanel} for the Settings Dialog.
@@ -72,11 +75,19 @@ public class YoSettingsComponent {
       int ret = fileChooser.showDialog(null, "Open file");
       if (ret == JFileChooser.APPROVE_OPTION) {
         var file = fileChooser.getSelectedFile();
-        userIconPath.setText(file.getPath());
+        userIconPath.setText(clearFilePath(file.getPath()));
       }
     });
   }
 
+  private String clearFilePath(String filePath) {
+    var separator = File.separator;
+    var filePathAfterChangingSeparator = filePath.replaceAll(Matcher.quoteReplacement(separator), "/");
+    var regex = "^.*:";
+    var pattern = Pattern.compile(regex);
+    var matcher = pattern.matcher(filePathAfterChangingSeparator);
+    return matcher.replaceFirst("");
+  }
   public JRadioButton getCurrentButton() {
     return currentButton;
   }

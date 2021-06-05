@@ -23,6 +23,9 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 public class YoProgressBarUi extends BasicProgressBarUI {
@@ -67,7 +70,7 @@ public class YoProgressBarUi extends BasicProgressBarUI {
     //Универсальный метод рисования, который должен делать правильные вещи для всех линейных индикаторов выполнения прыгающих ящиков.
     @Override
     protected void paintIndeterminate(Graphics g2d, JComponent component) {
-        if (!(g2d instanceof Graphics2D)) {
+        if (isNotInstanceOfGraphic2D(g2d)) {
             return;
         }
 
@@ -121,7 +124,7 @@ public class YoProgressBarUi extends BasicProgressBarUI {
             graphics2D.fill(area);
         }
         var state = YoProgressBarUiState.getInstance();
-        var currentIcon = YoIcons.loadIcon(this.getClass().getResource(state.getCurrentIconPath()));
+        var currentIcon = YoIcons.loadIcon(cleanURL(state.getCurrentIconPath()));
 
         currentIcon.paintIcon(progressBar, graphics2D, offset2 - JBUIScale.scale(5), -(component.getHeight() - barRectHeight) / 2);
 
@@ -138,10 +141,25 @@ public class YoProgressBarUi extends BasicProgressBarUI {
         config.restore();
     }
 
+    private URL cleanURL(String filePath){
+        var url = this.getClass().getResource(filePath);
+        if (url == null){
+            try {
+                url = createUrlFromPath(filePath);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
+        return url;
+    }
+    private URL createUrlFromPath(String filePath) throws MalformedURLException {
+        return new File(filePath).toURI().toURL();
+    }
+
     //Универсальный метод рисования, который должен делать правильные вещи почти для всех линейных, определенных индикаторов прогресса.
     @Override
     protected void paintDeterminate(Graphics graphics, JComponent component) {
-        if (!(graphics instanceof Graphics2D)) {
+        if (isNotInstanceOfGraphic2D(graphics)) {
             return;
         }
 
@@ -194,7 +212,8 @@ public class YoProgressBarUi extends BasicProgressBarUI {
 
         graphics2D.fill(new RoundRectangle2D.Float(2f * off, 2f * off, amountFull - JBUIScale.scale(5f), progressBarHeight - JBUIScale.scale(5f), JBUIScale.scale(7f), JBUIScale.scale(7f)));
 
-        var currentIcon = YoIcons.loadIcon(this.getClass().getResource(state.getCurrentIconPath()));
+
+        var currentIcon = YoIcons.loadIcon(cleanURL(state.getCurrentIconPath()));
 
         currentIcon.paintIcon(progressBar, graphics2D, amountFull - JBUIScale.scale(5), -(component.getHeight() - progressBarHeight) / 2);
         graphics2D.translate(0, -(component.getHeight() - progressBarHeight) / 2);
