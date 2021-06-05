@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>https://github.com/DUNNIK</id>
   <name>YoPlugin</name>
-  <version>1.0</version>
+  <version>1.1</version>
   <idea-version since-build="193"/>
   <vendor email="dns.56@mail.ru" url="https://github.com/DUNNIK">DUNNIK</vendor>
 
@@ -22,6 +22,7 @@
   <change-notes><![CDATA[
       <ul>
         <li>Version 1.0. Add 4 gifs and field for custom gifs</li>
+        <li>Version 1.1. Fixed bugs related to the user icon</li>
       </ul>
     ]]>
   </change-notes>
