@@ -1,24 +1,27 @@
 <idea-plugin>
-  <id>dunnik</id>
+  <id>https://github.com/DUNNIK</id>
   <name>YoPlugin</name>
   <version>1.0</version>
   <idea-version since-build="193"/>
   <vendor email="dns.56@mail.ru" url="https://github.com/DUNNIK">DUNNIK</vendor>
 
   <description><![CDATA[
-      Yo! This plugin is created to diversify your shitcode with your any pictures.
-      <img src="https://github.com/qeesung/HighlightBracketPair/raw/master/images/highlight-java.gif"/><br/>
-      <img src="https://github.com/qeesung/HighlightBracketPair/raw/master/images/highlight-go.gif"/><br/>
-      <img src="https://github.com/qeesung/HighlightBracketPair/raw/master/images/settings.jpeg"/><br/>
+      Yo! This plugin is created to diversify your shitcode with your any pictures.<br/>
+      <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/marioExample.gif"/><br/>
+      <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/sonicExample.gif"/><br/>
+      <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/picachuExample.gif"/><br/>
+      <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/nyanCatExample.gif"/><br/>
+      <br/>
+      And the fascinating thing. You can add your CUSTOM GIF or picture. (Unfortunately, now there is no image processing, so I advise you to add an icon of 20 pixels in height)
+      <br/>
+      <img width="450" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/CustomExample.png"/>
+      <br/>
       Click <a href="https://github.com/DUNNIK/YoPlugin">github</a> for more information.
     ]]></description>
 
   <change-notes><![CDATA[
       <ul>
-        <li>Fixed some little issues</li>
-        <li>Support more languages and IDEs</li>
-        <li>Add color schemes and effects settings</li>
-        <li>Compatible with the vim mode</li>
+        <li>Version 1.0. Add 4 gifs and field for custom gifs</li>
       </ul>
     ]]>
   </change-notes>
