@@ -11,23 +11,23 @@ Yo! This plugin works to diversify your shit code with any pictures.
 
 ![NianCatProgressBar](https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/nyanCatExample.gif)
 
-This is the [Mario Progress Bar](https://plugins.jetbrains.com/plugin/14708-mario-progress-bar/versions) for [JetBrains IntelliJ IDEA](https://www.jetbrains.com/idea/) based on the Nyan Progress Bar by Dmitry Batkovitch. It display Mario with some bricks for the basic bar and a Koopa Shell for the indeterminate one.
+This is the plugin for [JetBrains Products](https://www.jetbrains.com/) based on the Nyan Progress Bar by Dmitry Batkovitch and Mario Progress Bar by Kylian Meulin. It shows various Progress bars and allows you to customize the loader yourself in settings. (But the picture or gif should be 20 pixels height ...)
 
+## How to install?
 
-## Contributing
+You can install YoPlugin from the [JetBrains Plugin Repository](https://plugins.jetbrains.com/plugin/7973-sonarlint), directly available in the IDE preferences.
 
-Contributions are very welcome on this project! Please see our [contributing guidelines](CONTRIBUTING.md) and [code of conduct](CODE_OF_CONDUCT.md) to get started.
+## Where are the settings located?
+------------
+    File -> Settings -> Tools -> YoPlugin Settings
 
-## Acknowledgements
+## How do you add your image?
 
-### Sprites
-* All sprites belong to Nintendo. Find them on [Spriters-Resource](https://www.spriters-resource.com/)
+![img.png](ExamplesForReadme/img.png)
 
-### Code
+    Chose image or gif file -> Click on Custom
 
-* The code for the progress bar was adapted from [Nyan Progess Bar](https://github.com/batya239/NyanProgressBar).
-* This plugin is of course heavily dependent on JetBrains' IntelliJ SDK  
+### Size of image
 
-### Misc
-
-
+####Your icon should be no more than 20 pixels high.
+At the moment, changing the size of the icon is not implemented. The current solution broke the gif animation. So, if someone suggests a solution, I will be grateful.
