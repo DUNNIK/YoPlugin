@@ -4,6 +4,8 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
+import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class YoIcons {
@@ -14,7 +16,9 @@ public class YoIcons {
     private static final String SKELETONS_PATH = "/Gifs/Скелеты.gif";
     private static final String NYAN_CAT_PATH = "/Gifs/NyanCat.gif";
 
-    private YoIcons() { throw new IllegalStateException("Utility class"); }
+    public YoIcons() {
+
+    }
 
     public static String getZombiePath() {
         return ZOMBIE_PATH;
@@ -39,6 +43,7 @@ public class YoIcons {
     public static String getMarioPath() {
         return MARIO_PATH;
     }
+
 
     @NotNull
     @Contract("_ -> new")

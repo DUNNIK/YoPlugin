@@ -5,7 +5,6 @@ package settings;
 import com.intellij.openapi.options.Configurable;
 import handler.YoCommand;
 import handler.YoHandler;
-import org.h2.util.StringUtils;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.Nullable;
 
@@ -62,7 +61,7 @@ public class YoSettingsConfigurable implements Configurable {
     changeDesign.toDo();
   }
   private boolean isNotImpossibleToCustom() {
-    return StringUtils.isWhitespaceOrEmpty(yoSettingsComponent.getCustomPath()) && yoSettingsComponent.getCurrentButtonText().equals("Custom");
+    return yoSettingsComponent.getCustomPath().trim().isEmpty() && yoSettingsComponent.getCurrentButtonText().equals("Custom");
   }
   @Override
   public void reset() {
