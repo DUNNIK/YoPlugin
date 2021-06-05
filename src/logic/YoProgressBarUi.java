@@ -207,38 +207,38 @@ public class YoProgressBarUi extends BasicProgressBarUI {
         config.restore();
     }
 
-    private void paintString(Graphics graphics, int x, int y, int w, int h, int fillStart, int amountFull) {
-        if (!(graphics instanceof Graphics2D)) {
+    private void paintString(Graphics g, int x, int y, int w, int h, int fillStart, int amountFull) {
+        if (!(g instanceof Graphics2D)) {
             return;
         }
 
-        var graphics2D = (Graphics2D) graphics;
-        var progressString = progressBar.getString();
-        graphics2D.setFont(progressBar.getFont());
-        Point renderLocation = getStringPlacement(graphics2D, progressString,
+        Graphics2D g2 = (Graphics2D) g;
+        String progressString = progressBar.getString();
+        g2.setFont(progressBar.getFont());
+        Point renderLocation = getStringPlacement(g2, progressString,
                 x, y, w, h);
-        Rectangle oldClip = graphics2D.getClipBounds();
+        Rectangle oldClip = g2.getClipBounds();
 
         if (progressBar.getOrientation() == SwingConstants.HORIZONTAL) {
-            graphics2D.setColor(getSelectionBackground());
-            BasicGraphicsUtils.drawString(progressBar, graphics2D, progressString, renderLocation.x, renderLocation.y);
+            g2.setColor(getSelectionBackground());
+            BasicGraphicsUtils.drawString(progressBar, g2, progressString, renderLocation.x, renderLocation.y);
 
-            graphics2D.setColor(getSelectionForeground());
-            graphics2D.clipRect(fillStart, y, amountFull, h);
-            BasicGraphicsUtils.drawString(progressBar, graphics2D, progressString, renderLocation.x, renderLocation.y);
+            g2.setColor(getSelectionForeground());
+            g2.clipRect(fillStart, y, amountFull, h);
+            BasicGraphicsUtils.drawString(progressBar, g2, progressString, renderLocation.x, renderLocation.y);
         } else {
-            graphics2D.setColor(getSelectionBackground());
-            var rotate =
+            g2.setColor(getSelectionBackground());
+            AffineTransform rotate =
                     AffineTransform.getRotateInstance(Math.PI / 2);
-            graphics2D.setFont(progressBar.getFont().deriveFont(rotate));
-            renderLocation = getStringPlacement(graphics2D, progressString,
+            g2.setFont(progressBar.getFont().deriveFont(rotate));
+            renderLocation = getStringPlacement(g2, progressString,
                     x, y, w, h);
-            BasicGraphicsUtils.drawString(progressBar, graphics2D, progressString, renderLocation.x, renderLocation.y);
-            graphics2D.setColor(getSelectionForeground());
-            graphics2D.clipRect(x, fillStart, w, amountFull);
-            BasicGraphicsUtils.drawString(progressBar, graphics2D, progressString, renderLocation.x, renderLocation.y);
+            BasicGraphicsUtils.drawString(progressBar, g2, progressString, renderLocation.x, renderLocation.y);
+            g2.setColor(getSelectionForeground());
+            g2.clipRect(x, fillStart, w, amountFull);
+            BasicGraphicsUtils.drawString(progressBar, g2, progressString, renderLocation.x, renderLocation.y);
         }
-        graphics2D.setClip(oldClip);
+        g2.setClip(oldClip);
     }
 
     @Override
