@@ -29,5 +29,5 @@ You can install YoPlugin from the [JetBrains Plugin Repository](https://plugins.
 
 ### Size of image
 
-####Your icon should be no more than 20 pixels high.
+#### Your icon should be no more than 20 pixels high.
 At the moment, changing the size of the icon is not implemented. The current solution broke the gif animation. So, if someone suggests a solution, I will be grateful.
