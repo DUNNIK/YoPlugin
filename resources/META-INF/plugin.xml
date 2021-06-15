@@ -1,12 +1,12 @@
 <idea-plugin>
   <id>https://github.com/DUNNIK</id>
   <name>Yo</name>
-  <version>1.1</version>
+  <version>1.2</version>
   <idea-version since-build="193"/>
   <vendor email="dns.56@mail.ru" url="https://github.com/DUNNIK">DUNNIK</vendor>
 
   <description><![CDATA[
-      Yo! This plugin works to diversify your shit code with any pictures.<br/>
+      Yo! This plugin works to add great images to your drab code.<br/>
       <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/marioExample.gif"/><br/>
       <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/sonicExample.gif"/><br/>
       <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/picachuExample.gif"/><br/>
@@ -23,6 +23,7 @@
       <ul>
         <li>Version 1.0. Add 4 gifs and field for custom gifs</li>
         <li>Version 1.1. Fixed bugs related to the user icon</li>
+        <li>Version 1.2. Another Name</li>
       </ul>
     ]]>
   </change-notes>

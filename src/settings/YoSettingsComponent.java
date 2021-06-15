@@ -88,6 +88,7 @@ public class YoSettingsComponent {
     var matcher = pattern.matcher(filePathAfterChangingSeparator);
     return matcher.replaceFirst("");
   }
+
   public JRadioButton getCurrentButton() {
     return currentButton;
   }
