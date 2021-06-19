@@ -4,8 +4,6 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
-import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class YoIcons {
