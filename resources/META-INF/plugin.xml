@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>https://github.com/DUNNIK</id>
   <name>Yo</name>
-  <version>1.3</version>
+  <version>1.4</version>
   <idea-version since-build="193"/>
   <vendor email="dns.56@mail.ru" url="https://github.com/DUNNIK">DUNNIK</vendor>
 
@@ -16,7 +16,9 @@
       <br/>
       <img width="450" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/CustomExample.png"/>
       <br/>
-      Click <a href="https://github.com/DUNNIK/YoPlugin">github</a> for more information.
+      Click <a href="https://github.com/DUNNIK/YoPlugin">Github</a> for more information.
+      <br/>
+      The plugin is based on <a href="https://plugins.jetbrains.com/plugin/14708-mario-progress-bar">Mario Progress Bar</a> and <a href="https://plugins.jetbrains.com/plugin/8575-nyan-progress-bar">Nyan Progress Bar</a>
     ]]></description>
 
   <change-notes><![CDATA[
@@ -25,6 +27,7 @@
         <li>Version 1.1. Fixed bugs related to the user icon</li>
         <li>Version 1.2. Another Name</li>
         <li>Version 1.3. Another description</li>
+        <li>Version 1.4. Added links</li>
       </ul>
     ]]>
   </change-notes>
