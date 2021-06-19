@@ -36,7 +36,7 @@ public class YoHandler {
             case "Custom" :
                 state = YoProgressBarUiState.getInstance();
                 state.setCurrentIconPath(command.getUserPath());
-                state.setCurrentBackgroundPath(YoBackgrounds.getRainbowBackgroundPath());
+                state.setCurrentBackgroundPath(YoBackgrounds.getGreyBackgroundPath());
                 break;
             default : throw new IllegalStateException("Unexpected value: " + command.getCommandName());
         }

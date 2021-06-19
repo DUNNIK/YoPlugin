@@ -25,7 +25,7 @@ import java.util.List;
 public class YoSettingsState implements PersistentStateComponent<YoSettingsState> {
 
   private final List<String> allIconNames = Arrays.asList( "Mario", "Pikachu", "Sonic", "Nyan Cat", "Custom");
-  private String currentIconName = "Mario";
+  private String currentIconName = "Nyan Cat";
   private String customPath;
 
 
