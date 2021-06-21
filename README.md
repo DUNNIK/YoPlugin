@@ -17,7 +17,7 @@ This is the plugin for [JetBrains Products](https://www.jetbrains.com/) based on
 ## How to install?
 
 ------------
-You can install YoPlugin from the [JetBrains Plugin Repository](https://plugins.jetbrains.com/plugin/7973-sonarlint), directly available in the IDE preferences.
+You can install YoPlugin from the [JetBrains Plugin Repository](https://plugins.jetbrains.com/plugin/16943-yo), directly available in the IDE preferences.
 
 ------------
 
@@ -38,4 +38,6 @@ You can install YoPlugin from the [JetBrains Plugin Repository](https://plugins.
 ### Size of image
 
 #### Your icon should be no more than 20 pixels high.
+
 At the moment, changing the size of the icon is not implemented. The current solution broke the gif animation. So, if someone suggests a solution, I will be grateful.
+
