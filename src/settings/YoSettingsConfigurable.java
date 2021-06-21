@@ -48,7 +48,7 @@ public class YoSettingsConfigurable implements Configurable {
 
   @Override
   public void apply() {
-    if (isNotImpossibleToCustom()){
+    if (isImpossibleToCustom()){
       JOptionPane.showMessageDialog(null, "It's not impossible to custom");
       reset();
       return;
@@ -60,7 +60,7 @@ public class YoSettingsConfigurable implements Configurable {
     var changeDesign = new YoHandler(new YoCommand(settings.getCurrentIconName(), settings.getCustomPath()));
     changeDesign.toDo();
   }
-  private boolean isNotImpossibleToCustom() {
+  private boolean isImpossibleToCustom() {
     return yoSettingsComponent.getCustomPath().trim().isEmpty() && yoSettingsComponent.getCurrentButtonText().equals("Custom");
   }
   @Override

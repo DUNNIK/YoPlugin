@@ -10,11 +10,12 @@ import static javax.imageio.ImageIO.read;
 
 public class YoBackgrounds {
     private static final String WALL_BACKGROUND_PATH = "/Backgrounds/bricks.png";
-    private static final String GRASS_BACKGROUND_PATH = "/Backgrounds/grass.png";
-    private static final String MOUNTAIN_BACKGROUND_PATH = "/Backgrounds/mountains.png";
     private static final String RAINBOW_BACKGROUND_PATH = "/Backgrounds/rainbow.png";
     private static final String GREY_BACKGROUND_PATH = "/Backgrounds/gray.png";
-    private static final String LIGHTGREY_BACKGROUND_PATH = "/Backgrounds/lightGray.png";
+    private static final String SONIC_BACKGROUND_PATH = "/Backgrounds/sonicBackground.png";
+    private static final String MINECRAFT_BACKGROUND_PATH = "/Backgrounds/minecraft.png";
+    private static final String NARUTO_BACKGROUND_PATH = "/Backgrounds/Naruto.png";
+    private static final String NARUTO_YELLOW_BACKGROUND_PATH = "/Backgrounds/narutoYellow.png";
 
     private YoBackgrounds() { throw new IllegalStateException("Utility class"); }
 
@@ -22,25 +23,30 @@ public class YoBackgrounds {
         return WALL_BACKGROUND_PATH;
     }
 
-    public static String getMountainBackgroundPath() {
-        return MOUNTAIN_BACKGROUND_PATH;
-    }
-
-    public static String getGrassBackgroundPath() {
-        return GRASS_BACKGROUND_PATH;
+    public static String getSonicBackgroundPath() {
+        return SONIC_BACKGROUND_PATH;
     }
 
     public static String getRainbowBackgroundPath() {
         return RAINBOW_BACKGROUND_PATH;
     }
 
+    public static String getNarutoYellowBackgroundPath() {
+        return NARUTO_YELLOW_BACKGROUND_PATH;
+    }
+
+    public static String getNarutoBackgroundPath() {
+        return NARUTO_BACKGROUND_PATH;
+    }
+
+    public static String getMinecraftBackgroundPath() {
+        return MINECRAFT_BACKGROUND_PATH;
+    }
+
     public static String getGreyBackgroundPath() {
         return GREY_BACKGROUND_PATH;
     }
 
-    public static String getLightgreyBackgroundPath() {
-        return LIGHTGREY_BACKGROUND_PATH;
-    }
     private static BufferedImage resizeImage(BufferedImage image) {
         return Scalr.resize(image, 32);
     }
