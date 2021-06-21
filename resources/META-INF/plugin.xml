@@ -7,14 +7,16 @@
 
   <description><![CDATA[
       Yo! This plugin works to add great images to your drab code.<br/>
-      <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/marioExample.gif"/><br/>
-      <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/sonicExample.gif"/><br/>
-      <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/picachuExample.gif"/><br/>
-      <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/nyanCatExample.gif"/><br/>
+      <img src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/marioExample.gif"/><br/>
+      <img src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/sonicExample.gif"/><br/>
+      <img src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/minecraftExample.gif"/><br/>
+      <img src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/sasukeExample.gif"/><br/>
+      <img src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/narutoExample.gif"/><br/>
+      <img src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/nyanCatExample.gif"/><br/>
       <br/>
       And the fascinating thing. You can add your CUSTOM GIF or picture. (Unfortunately, now there is no image processing, so I advise you to add an icon of 20 pixels in height)
       <br/>
-      <img width="450" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/CustomExample.png"/>
+      <img width="450" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/menu.png"/>
       <br/>
       Click <a href="https://github.com/DUNNIK/YoPlugin">Github</a> for more information.
       <br/>
