@@ -23,7 +23,7 @@ public class YoSettingsComponent {
 
   private final JPanel myMainPanel;
   private final ButtonGroup buttonGroup = new ButtonGroup();
-  private final JPanel panelRadio = new JPanel(new GridLayout(5,0));
+  private final JPanel panelRadio = new JPanel(new GridLayout(7,0));
   private JRadioButton currentButton = new JRadioButton();
   private final List<JRadioButton> buttonList = new ArrayList<>();
   private final JBTextField userIconPath = new JBTextField();
