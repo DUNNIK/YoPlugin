@@ -1,5 +1,6 @@
 # YoPlugin
 
+------------
 Yo! This plugin works to diversify your shit code with any pictures.
 
 
@@ -7,25 +8,32 @@ Yo! This plugin works to diversify your shit code with any pictures.
 
 ![SonicProgressBar](https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/sonicExample.gif)
 
-![PikachuProgressBar](https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/picachuExample.gif)
-
 ![NianCatProgressBar](https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/nyanCatExample.gif)
 
 This is the plugin for [JetBrains Products](https://www.jetbrains.com/) based on the Nyan Progress Bar by Dmitry Batkovitch and Mario Progress Bar by Kylian Meulin. It shows various Progress bars and allows you to customize the loader yourself in settings. (But the picture or gif should be 20 pixels height ...)
 
+------------
+
 ## How to install?
 
+------------
 You can install YoPlugin from the [JetBrains Plugin Repository](https://plugins.jetbrains.com/plugin/7973-sonarlint), directly available in the IDE preferences.
 
+------------
+
 ## Where are the settings located?
+
 ------------
     File -> Settings -> Tools -> YoPlugin Settings
+------------
 
 ## How do you add your image?
 
-![img.png](ExamplesForReadme/img.png)
+------------
+![img.png](ExamplesForReadme/menu.png)
 
     Chose image or gif file -> Click on Custom
+------------
 
 ### Size of image
 
