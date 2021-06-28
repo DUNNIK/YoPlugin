@@ -4,6 +4,7 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
+import java.awt.*;
 import java.net.URL;
 
 public class YoIcons {
@@ -40,6 +41,10 @@ public class YoIcons {
         return NYAN_CAT_PATH;
     }
 
+    private static void resizeImage(ImageIcon image) {
+        var height = 20;
+        image.setImage(image.getImage().getScaledInstance(20, height, Image.SCALE_DEFAULT));
+    }
     @NotNull
     @Contract("_ -> new")
     public static ImageIcon loadIcon(URL url) {

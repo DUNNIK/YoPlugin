@@ -8,6 +8,12 @@ Yo! This plugin works to diversify your shit code with any pictures.
 
 ![SonicProgressBar](https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/sonicExample.gif)
 
+![MinecraftProgressBar](https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/minecraftExample.gif)
+
+![SasukeProgressBar](https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/sasukeExample.gif)
+
+![NarutoProgressBar](https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/narutoExample.gif)
+
 ![NianCatProgressBar](https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/nyanCatExample.gif)
 
 This is the plugin for [JetBrains Products](https://www.jetbrains.com/) based on the Nyan Progress Bar by Dmitry Batkovitch and Mario Progress Bar by Kylian Meulin. It shows various Progress bars and allows you to customize the loader yourself in settings. (But the picture or gif should be 20 pixels height ...)
