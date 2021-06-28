@@ -1,18 +1,19 @@
 <idea-plugin>
   <id>https://github.com/DUNNIK</id>
-  <name>Yo</name>
-  <version>1.5</version>
+  <name>Yo Progress Bar</name>
+  <version>1.7</version>
   <idea-version since-build="193"/>
   <vendor email="dns.56@mail.ru" url="https://github.com/DUNNIK">DUNNIK</vendor>
 
   <description><![CDATA[
+      <p>
       Yo! This plugin works to add great images to your drab code.<br/>
-      <img src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/marioExample.gif"/><br/>
-      <img src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/sonicExample.gif"/><br/>
-      <img src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/minecraftExample.gif"/><br/>
-      <img src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/sasukeExample.gif"/><br/>
-      <img src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/narutoExample.gif"/><br/>
-      <img src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/nyanCatExample.gif"/><br/>
+      <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/marioExample.gif"/><br/>
+      <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/sonicExample.gif"/><br/>
+      <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/minecraftExample.gif"/><br/>
+      <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/sasukeExample.gif"/><br/>
+      <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/narutoExample.gif"/><br/>
+      <img width="500" src="https://raw.githubusercontent.com/DUNNIK/YoPlugin/develop/ExamplesForReadme/nyanCatExample.gif"/><br/>
       <br/>
       And the fascinating thing. You can add your CUSTOM GIF or picture. (Unfortunately, now there is no image processing, so I advise you to add an icon of 20 pixels in height)
       <br/>
@@ -21,6 +22,7 @@
       Click <a href="https://github.com/DUNNIK/YoPlugin">Github</a> for more information.
       <br/>
       The plugin is based on <a href="https://plugins.jetbrains.com/plugin/14708-mario-progress-bar">Mario Progress Bar</a> and <a href="https://plugins.jetbrains.com/plugin/8575-nyan-progress-bar">Nyan Progress Bar</a>
+      </p>
     ]]></description>
 
   <change-notes><![CDATA[
@@ -31,6 +33,8 @@
         <li>Version 1.3. Another description</li>
         <li>Version 1.4. Added links</li>
         <li>Version 1.5. Added new designs. Made our designs more beautiful</li>
+        <li>Version 1.6. New name</li>
+        <li>Version 1.7. Fix description</li>
       </ul>
     ]]>
   </change-notes>
